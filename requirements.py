@@ -1,4 +1,5 @@
 import os
+import sys
 from google.colab import drive
 
 def Drive():
@@ -7,3 +8,6 @@ def Drive():
     drive.mount('/content/drive')
   else:
     drive.mount('/content/drive')
+
+def add(paths=[]):
+  [sys.path.insert(0, path) for path in paths]
