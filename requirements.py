@@ -9,5 +9,5 @@ def Drive():
   else:
     drive.mount('/content/drive')
 
-def add(paths=[]):
+def Sys(paths=[]):
   [sys.path.insert(0, path) for path in paths]
