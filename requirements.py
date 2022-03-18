@@ -26,7 +26,7 @@ def Callback(params, fit=[], evaluate=[], predict=[], indexing=None):
     'predict': []
   }
   if indexing == None:
-    cb.fit.extend(fit)
-    cb.evaluate.extend(evaluate)
-    cb.predict.extend(predict)
+    cb['fit'].extend(fit)
+    cb['evaluate'].extend(evaluate)
+    cb['predict'].extend(predict)
   return cb
