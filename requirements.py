@@ -14,6 +14,7 @@ def Drive():
 def Sys(root='/', paths=[]):
   paths.extend([
     root,
+    root + '/network',
     root + '/model',
     root + '/model/layer'
   ])
