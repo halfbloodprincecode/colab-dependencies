@@ -4,6 +4,8 @@ from tensorflow import keras
 class Model(keras.Model):
   def __init__(self):
     super(Model, self).__init__()
+  
+  @staticmethod
   def getCallbacks(params, fit=[], evaluate=[], predict=[], indexing=None):
     cb = {
       'fit': [
