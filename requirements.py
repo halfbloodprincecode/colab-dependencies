@@ -11,7 +11,7 @@ def Drive():
   else:
     drive.mount('/content/drive')
 
-def Sys(root='', paths=[]):
+def Sys(root='/', paths=[]):
   paths.extend([
     root,
     root + '/model',
