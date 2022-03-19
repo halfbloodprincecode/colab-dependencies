@@ -27,4 +27,4 @@ def Kaggle(root='/', datasets={}):
   os.chmod('/root/.kaggle/kaggle.json', 600)
   os.remove('/content/kaggle.json')
   for Dkey in datasets:
-    os.system(f'kaggle datasets download -d {datasets[Dkey]} -p /content/datasets/{Dkey}')
+    print(os.system(f'kaggle datasets download -d {datasets[Dkey]} -p /content/datasets/{Dkey}'))
