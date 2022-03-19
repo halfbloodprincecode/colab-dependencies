@@ -1,5 +1,6 @@
 import os
 import sys
+import shutil
 import tensorflow as tf  
 from tensorflow import keras
 from google.colab import drive
@@ -19,3 +20,6 @@ def Sys(root='/', paths=[]):
     root + '/model/layer'
   ])
   [sys.path.insert(0, path) for path in paths]
+
+def Kaggle(root='/'):
+  shutil.copyfile(root + '/kaggle.json', '~/.kaggle/')
