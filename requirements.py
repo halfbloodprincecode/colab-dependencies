@@ -25,4 +25,5 @@ def Kaggle(root='/'):
   shutil.copy(root + '/kaggle.json', '/content')
   shutil.copy('/content/kaggle.json', '/root/.kaggle')
   os.chmod('/root/.kaggle/kaggle.json', 600)
+  os.remove('/content/kaggle.json')
 
