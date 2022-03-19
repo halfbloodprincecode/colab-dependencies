@@ -22,4 +22,4 @@ def Sys(root='/', paths=[]):
   [sys.path.insert(0, path) for path in paths]
 
 def Kaggle(root='/'):
-  return os.listdir('/root/')
+  shutil.copy(root + '/kaggle.json', '/content')
