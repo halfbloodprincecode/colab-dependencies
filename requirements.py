@@ -29,4 +29,4 @@ def Kaggle(root='/', datasets={}):
   for Dkey in datasets:
     os.system(f'kaggle datasets download -d {datasets[Dkey]} -p /content/datasets/{Dkey}')
     os.system(f'unzip /content/datasets/{Dkey}/*.zip -d /content/datasets/{Dkey}')
-#     os.system(f'rm -rf /content/datasets/{Dkey}/*.zip')
+    os.system(f'rm -rf /content/datasets/{Dkey}/*.zip')
