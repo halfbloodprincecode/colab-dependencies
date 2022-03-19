@@ -22,5 +22,5 @@ def Sys(root='/', paths=[]):
   [sys.path.insert(0, path) for path in paths]
 
 def Kaggle(root='/'):
-  shutil.copyfile(root + '/kaggle.json', '~/.kaggle/')
-  os.chmod('~/.kaggle/kaggle.json', 600)
+  shutil.copyfile(root + '/kaggle.json', '/root/.kaggle/')
+  os.chmod('/root/.kaggle/kaggle.json', 600)
