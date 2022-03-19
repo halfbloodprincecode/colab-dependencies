@@ -21,9 +21,10 @@ def Sys(root='/', paths=[]):
   ])
   [sys.path.insert(0, path) for path in paths]
 
-def Kaggle(root='/'):
+def Kaggle(root='/', datasets={}):
   shutil.copy(root + '/kaggle.json', '/content')
   shutil.copy('/content/kaggle.json', '/root/.kaggle')
   os.chmod('/root/.kaggle/kaggle.json', 600)
   os.remove('/content/kaggle.json')
-
+  for Dkey in datasets:
+    os. system(f'kaggle datasets download -d {datasets[Dkey]} -p /content/datasets/{Dkey}')
