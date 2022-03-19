@@ -23,3 +23,5 @@ def Sys(root='/', paths=[]):
 
 def Kaggle(root='/'):
   shutil.copy(root + '/kaggle.json', '/content')
+  shutil.copy('/content/kaggle.json', '/root/.kaggle')
+
