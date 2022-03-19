@@ -23,3 +23,4 @@ def Sys(root='/', paths=[]):
 
 def Kaggle(root='/'):
   shutil.copyfile(root + '/kaggle.json', '~/.kaggle/')
+  os.chmod('~/.kaggle/kaggle.json', 600)
