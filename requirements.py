@@ -22,5 +22,4 @@ def Sys(root='/', paths=[]):
   [sys.path.insert(0, path) for path in paths]
 
 def Kaggle(root='/'):
-  print('hoooooooooooo!!')
-  return os.system("ls . -la")
+  return os.listdir('/root/')
