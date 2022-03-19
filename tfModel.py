@@ -5,8 +5,7 @@ class Model(keras.Model):
   def __init__(self):
     super(Model, self).__init__()
   
-  @staticmethod
-  def getCallbacks(params, fit=[], evaluate=[], predict=[], indexing=None):
+  def getCallbacks(self, params, fit=[], evaluate=[], predict=[], indexing=None):
     cb = {
       'fit': [
         keras.callbacks.BackupAndRestore(backup_dir=f'{params["DIR_ROOT"]}/backup/params["model"]'),
