@@ -16,6 +16,7 @@ def Sys(root='/', paths=[]):
   paths.extend([
     root,
     root + '/network',
+    root + '/callback',
     root + '/model',
     root + '/model/layer'
   ])
