@@ -11,9 +11,3 @@ class Dataset:
       d = d.shuffle(1000).map(preprocessing[dpath]).prefetch(tf.data.AUTOTUNE).cache().batch(self.B)
       self.D.append(d)
     return self.D
-  
-  @staticmethod
-  def normalize_img(img):
-    img = tf.cast(img, dtype=tf.float32)
-    # Map values in the range [-1, 1]
-    return (img / 127.5) - 1.0
