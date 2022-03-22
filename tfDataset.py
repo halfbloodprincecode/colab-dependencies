@@ -13,5 +13,10 @@ class Dataset:
     return self.D
   
   @staticmethod
-  def sliceFromBatch(Batch, Bi=0, Bj=4):
-    return Batch[Bi:Bj, :,:,:]
+  def sliceFromBatch(Batch, hasLabel=True, Bi=0, Bj=4):
+    for i, B in enumerate(Batch):
+      if hasLabel:
+        return B[0][Bi:Bj, :,:,:]
+      else:
+        return B[Bi:Bj, :,:,:]
+        
