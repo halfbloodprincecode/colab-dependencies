@@ -16,5 +16,5 @@ class Dataset:
   def sliceFromBatch(Batch, Bi=0, Bj=4):
     B = None
     for batch in Batch:
-      B = batch[0][Bi:Bj, :,:,:]
+      B = batch[Bi:Bj, :,:,:]
     return B
