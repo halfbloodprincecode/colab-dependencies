@@ -1,3 +1,5 @@
+import numpy as np
+
 class Normalization:
   @staticmethod
   def normalize_img(img):
