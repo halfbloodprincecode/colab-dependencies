@@ -13,9 +13,11 @@ class Plotting:
           if img.shape[-1] == 1:
             img = img[:, :, 0]
           ax[i, j].imshow(Normalization.denormalize_img(img))
+          ax[i, j].axis('off')
       else:
         img = samples[0]
         if img.shape[-1] == 1:
           img = img[:, :, 0]
         ax[i].imshow(Normalization.denormalize_img(img))
+        ax[i].axis('off')
     plt.show()
