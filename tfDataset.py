@@ -18,4 +18,4 @@ class Dataset:
     for i, B in enumerate(Batch):
       for j in range(len(B)):
         L.append(B[j][Bi:Bj, :,:,:])
-      return L
+    return L
