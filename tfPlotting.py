@@ -9,7 +9,13 @@ class Plotting:
     for i, samples in enumerate(zip):
       if col > 1:
         for j in range(col):
-          ax[i, j].imshow(Normalization.denormalize_img(samples[j]))
+          img = samples[j]
+          if img.shape[-1] == 1:
+            img = img[:, :, 0]
+          ax[i, j].imshow(Normalization.denormalize_img(img))
       else:
-        ax[i].imshow(Normalization.denormalize_img(samples[0]))
+        img = samples[0]
+        if img.shape[-1] == 1:
+          img = img[:, :, 0]
+        ax[i].imshow(Normalization.denormalize_img(img))
     plt.show()
