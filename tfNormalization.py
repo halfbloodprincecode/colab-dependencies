@@ -3,7 +3,7 @@ import tensorflow as tf
 
 class Normalization:
   @staticmethod
-  def normalize_img(img, R='-1to1'):
+  def normalize_img(img, R): # R: Range
     img = tf.cast(img, dtype=tf.float32)
     if R == '-1to1':
       # Map values in the range [-1, 1]
@@ -12,7 +12,7 @@ class Normalization:
       return (img/255.)
   
   @staticmethod
-  def denormalize_img(img, R='0to1'): # R: Range
+  def denormalize_img(img, R): # R: Range
     if R == '-1to1':
       return (((img * 127.5) + 127.5).numpy()).astype(np.uint8)
     elif R == '0to1':
