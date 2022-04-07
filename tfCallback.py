@@ -83,5 +83,4 @@ class Logger(keras.callbacks.Callback):
     
     if int(epoch) % 20 == 0 and int(epoch) > 1:
       distpath = f'/content/drive/MyDrive/backup/epoch{str(epoch)}_{str(datetime.datetime.now())}'
-      os.makedirs(distpath)
-      shutil.make_archive('/content/backup', 'zip', distpath)
+      shutil.make_archive(distpath, 'zip', '/content/backup')
