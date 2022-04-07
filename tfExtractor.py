@@ -3,9 +3,12 @@ from tensorflow import keras
 from vis.utils import utils
 
 
-def fromModel(date, model, layer_names):
+def fromModel(date, model, layer_names, inputs=None, final_output=False):
   index = [utils.find_layer_idx(model, name) for name in layer_names]
   _outputs = [model.layers[i].output for i in index]
-#   _outputs.append(model.layers[-1].output)
-  extractor = keras.Model(inputs=model.inputs, outputs=_outputs)
+  if final_output:
+    _outputs.append(model.layers[-1].output)
+  if inputs == None:
+    inputs = model.inputs
+  extractor = keras.Model(inputs=inputs, outputs=_outputs)
   return extractor(date, training=False)
