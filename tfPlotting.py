@@ -12,14 +12,14 @@ class Plotting:
           img = samples[j]
           if img.shape[-1] == 1:
             img = img[:, :, 0]
-          cmap = 'gray' if img[-1] == 1 else None
+          cmap = 'gray' if img[-1] == 1 else 'viridis'
           ax[i, j].imshow(Normalization.denormalize_img(img, R=R[j]), cmap=cmap)
           ax[i, j].axis('off')
       elif row>1 and col<=1:
         img = samples[0]
         if img.shape[-1] == 1:
           img = img[:, :, 0]
-        cmap = 'gray' if img[-1] == 1 else None
+        cmap = 'gray' if img[-1] == 1 else 'viridis'
         ax[i].imshow(Normalization.denormalize_img(img, R=R[0]), cmap=cmap)
         ax[i].axis('off')
       elif row<=1 and col>1:
@@ -27,7 +27,7 @@ class Plotting:
           img = samples[j]
           if img.shape[-1] == 1:
             img = img[:, :, 0]
-          cmap = 'gray' if img[-1] == 1 else None
+          cmap = 'gray' if img[-1] == 1 else 'viridis'
           ax[j].imshow(Normalization.denormalize_img(img, R=R[j]), cmap=cmap)
           ax[j].axis('off')
     plt.show()
