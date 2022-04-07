@@ -22,6 +22,8 @@ class Logger(keras.callbacks.Callback):
       os.makedirs(self.path_weights)
     if not os.path.exists(self.path_figure):
       os.makedirs(self.path_figure)
+    if not os.path.exists('/content/drive/MyDrive/backup'):
+      os.makedirs('/content/drive/MyDrive/backup')
 
   def on_epoch_begin(self, epoch, logs=None):
     if self.flag:
@@ -81,6 +83,6 @@ class Logger(keras.callbacks.Callback):
     row = None
     self.df = None
     
-    if int(epoch) % 20 == 0 and int(epoch) > 1:
-      distpath = f'/content/drive/MyDrive/backup/epoch{str(epoch)}_{str(datetime.datetime.now())}'
+    if int(epoch) % 50 == 0 and int(epoch) > 1:
+      distpath = f'/content/drive/MyDrive/backup/{self.parameters['Net']}_epoch{str(epoch)}_{str(datetime.datetime.now())}'
       shutil.make_archive(distpath, 'zip', '/content/backup')
