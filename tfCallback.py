@@ -84,5 +84,5 @@ class Logger(keras.callbacks.Callback):
     self.df = None
     
     if int(epoch) % 50 == 0 and int(epoch) > 1:
-      distpath = f'/content/drive/MyDrive/backup/{self.parameters['Net']}_epoch{str(epoch)}_{str(datetime.datetime.now())}'
+      distpath = f'/content/drive/MyDrive/backup/{self.parameters["Net"]}_epoch{str(int(epoch))}_{str(datetime.datetime.now())}'
       shutil.make_archive(distpath, 'zip', '/content/backup')
