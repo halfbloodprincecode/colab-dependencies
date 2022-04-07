@@ -5,28 +5,29 @@ from tfNormalization import Normalization
 class Plotting:
   @staticmethod
   def subplots(zip, row, col, R=[], figsize=(10, 15)):
+    cmap = 'viridis'
     _, ax = plt.subplots(row, col, figsize=figsize)
     for i, samples in enumerate(zip):
       if row>1 and col>1:
         for j in range(col):
           img = samples[j]
-          cmap = 'gray' if img.shape[-1] == 1 else 'viridis'
           if img.shape[-1] == 1:
+            cmap = 'gray'
             img = img[:, :, 0]
           ax[i, j].imshow(Normalization.denormalize_img(img, R=R[j]), cmap=cmap)
           ax[i, j].axis('off')
       elif row>1 and col<=1:
         img = samples[0]
-        cmap = 'gray' if img.shape[-1] == 1 else 'viridis'
         if img.shape[-1] == 1:
+          cmap = 'gray'
           img = img[:, :, 0]
         ax[i].imshow(Normalization.denormalize_img(img, R=R[0]), cmap=cmap)
         ax[i].axis('off')
       elif row<=1 and col>1:
         for j in range(col):
           img = samples[j]
-          cmap = 'gray' if img[-1] == 1 else 'viridis'
           if img.shape[-1] == 1:
+            cmap = 'gray'
             img = img[:, :, 0]
           ax[j].imshow(Normalization.denormalize_img(img, R=R[j]), cmap=cmap)
           ax[j].axis('off')
