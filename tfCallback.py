@@ -1,5 +1,6 @@
 import os
 import datetime
+import shutil
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -79,3 +80,8 @@ class Logger(keras.callbacks.Callback):
     
     row = None
     self.df = None
+    
+    if int(epoch) % 20 == 0 and int(epoch) > 1:
+      distpath = f'/content/drive/MyDrive/backup/epoch{str(epoch)}_{str(datetime.datetime.now())}'
+      os.makedirs(distpath)
+      shutil.make_archive('/content/backup', 'zip', distpath)
