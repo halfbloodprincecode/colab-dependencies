@@ -11,6 +11,8 @@ class Plotting:
       os.makedirs(f'/content/{params["Net"]}')
     keras.utils.plot_model(model, f'/content/{params["Net"]}/{name}_graph.png', show_shapes=True)
     visualkeras.layered_view(model, to_file=f'/content/{params["Net"]}/{name}_simple3D.png')
+    with open(f'/content/{params["Net"]}/{name}_summary.txt', 'w') as fh:
+      model.summary(print_fn=lambda x: fh.write(x + '\n'))
   
   @staticmethod
   def subplots(zip, row, col, R=[], figsize=(10, 15)):
