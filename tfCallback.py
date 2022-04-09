@@ -1,6 +1,7 @@
 import os
 import datetime
 import shutil
+import visualkeras
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -49,6 +50,11 @@ class Logger(keras.callbacks.Callback):
   
   def on_test_batch_end(self, batch, logs=None):
     pass
+  
+  def on_train_begin(self, logs=None):
+    keras.utils.plot_model(self.model, f'/content/{self.parameters["Net"]}/{name}.png', show_shapes=True)
+    visualkeras.layered_view(self.model, to_file=f'/content/{self.parameters["Net"]}/{name}_3D.png')
+
   
   def on_train_end(self, logs=None):
     D = pd.read_csv(self.path)
