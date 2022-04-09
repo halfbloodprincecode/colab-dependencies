@@ -5,7 +5,7 @@ from tfNormalization import Normalization
 
 class Plotting:
   @staticmethod
-  def model_plot(params, name):
+  def model(params, name):
     keras.utils.plot_model(self.model, f'/content/{params["Net"]}/{name}_graph.png', show_shapes=True)
     visualkeras.layered_view(self.model, to_file=f'/content/{params["Net"]}/{name}_simple3D.png')
   
