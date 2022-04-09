@@ -52,8 +52,7 @@ class Logger(keras.callbacks.Callback):
     pass
   
   def on_train_begin(self, logs=None):
-    keras.utils.plot_model(self.model, f'/content/{self.parameters["Net"]}/model_graph.png', show_shapes=True)
-    visualkeras.layered_view(self.model, to_file=f'/content/{self.parameters["Net"]}/model_simple3D.png')
+    pass
 
   def on_train_end(self, logs=None):
     D = pd.read_csv(self.path)
