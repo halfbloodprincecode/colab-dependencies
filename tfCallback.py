@@ -58,7 +58,7 @@ class Logger(keras.callbacks.Callback):
     Query = D.loc[D['Decrease'] == True]
 
     plt.plot(list(D['epoch']), list(D['loss']), color='c', label='training loss')
-    plt.plot(list(Query['epoch']), list(Query['loss']), '.', color='m', markersize=10, label='optimal point')
+    plt.plot(list(Query['epoch']), list(Query['loss']), '.', color='m', markersize=3, label='optimal point')
     plt.xlabel('epoch')
     plt.ylabel('Loss')
     plt.title(self.parameters['Net'])
