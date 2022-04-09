@@ -1,8 +1,14 @@
+import visualkeras
 import numpy as np
 import matplotlib.pyplot as plt
 from tfNormalization import Normalization
 
 class Plotting:
+  @staticmethod
+  def model_plot(params, name):
+    keras.utils.plot_model(self.model, f'/content/{params["Net"]}/{name}_graph.png', show_shapes=True)
+    visualkeras.layered_view(self.model, to_file=f'/content/{params["Net"]}/{name}_simple3D.png')
+  
   @staticmethod
   def subplots(zip, row, col, R=[], figsize=(10, 15)):
     cmap = 'viridis'
