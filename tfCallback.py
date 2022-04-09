@@ -1,7 +1,6 @@
 import os
 import datetime
 import shutil
-import visualkeras
 import numpy as np
 import pandas as pd
 import tensorflow as tf
