@@ -2,7 +2,6 @@ import tensorflow as tf
 from tensorflow import keras
 from vis.utils import utils
 
-
 def fromModel(date, model, layer_names, inputs=None, final_output=False):
   index = [utils.find_layer_idx(model, name) for name in layer_names]
   outputs = [model.layers[i].output for i in index]
@@ -12,3 +11,6 @@ def fromModel(date, model, layer_names, inputs=None, final_output=False):
     inputs = model.inputs
   extractor = keras.Model(inputs=inputs, outputs=outputs)
   return extractor(date, training=False)
+
+def midpoint(date, model, inputs):
+  return fromModel(date, model, layer_names=[], inputs=[model.layers[utils.find_layer_idx(model, input_name)].input for input_name in inputs], final_output=True)
