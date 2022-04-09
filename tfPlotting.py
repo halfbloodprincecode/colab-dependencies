@@ -1,17 +1,19 @@
 import os
 import visualkeras
 import numpy as np
+from tensorflow import keras
 import matplotlib.pyplot as plt
 from tfNormalization import Normalization
 
 class Plotting:
   @staticmethod
   def model(model, name, params):
-    if not os.path.exists(f'/content/{params["Net"]}'):
-      os.makedirs(f'/content/{params["Net"]}')
-    keras.utils.plot_model(model, f'/content/{params["Net"]}/{name}_graph.png', show_shapes=True)
-    visualkeras.layered_view(model, to_file=f'/content/{params["Net"]}/{name}_simple3D.png')
-    with open(f'/content/{params["Net"]}/{name}_summary.txt', 'w') as fh:
+    dirpath = f'/content/{params["Net"]}'
+    if not os.path.exists(dirpath):
+      os.makedirs(dirpath)
+    keras.utils.plot_model(model, f'{dirpath}/{name}_graph.png', show_shapes=True)
+    visualkeras.layered_view(model, to_file=f'{dirpath}/{name}_simple3D.png')
+    with open(f'{dirpath}/{name}_summary.txt', 'w') as fh:
       model.summary(print_fn=lambda x: fh.write(x + '\n'))
   
   @staticmethod
