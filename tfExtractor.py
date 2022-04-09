@@ -13,4 +13,4 @@ def fromModel(date, model, layer_names, inputs=None, final_output=False):
   return extractor(date, training=False)
 
 def midpoint(data, model, inputs):
-  return fromModel(data, model, layer_names=[], inputs=[model.layers[utils.find_layer_idx(model, input_name)].input for input_name in inputs], final_output=True)
+  return fromModel(data, model, layer_names=[], inputs=inputs, final_output=True)
