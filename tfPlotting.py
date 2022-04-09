@@ -6,6 +6,8 @@ from tfNormalization import Normalization
 class Plotting:
   @staticmethod
   def model(model, name, params):
+    if not os.path.exists(f'/content/{params["Net"]}'):
+      os.makedirs(f'/content/{params["Net"]}')
     keras.utils.plot_model(model, f'/content/{params["Net"]}/{name}_graph.png', show_shapes=True)
     visualkeras.layered_view(model, to_file=f'/content/{params["Net"]}/{name}_simple3D.png')
   
