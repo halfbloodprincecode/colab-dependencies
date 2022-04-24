@@ -33,7 +33,7 @@ class CustomFormatter(Genie_logging.Formatter):
     return formatter.format(record)
 
 def Genie():
-  logger = Genie_logging.getLogger('Genie')
+  logger = Genie_logging.getLogger('logger')
   logger.setLevel(Genie_logging.DEBUG)
 
   # create console handler with a higher log level
