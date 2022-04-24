@@ -10,6 +10,8 @@ from argparse import ArgumentParser
 
 index_vars = None
 
+print('@@@@@@@@@@@@', sys.argv)
+
 class CustomFormatter(Genie_logging.Formatter):
   grey = '\x1b[38;20m'
   blue = '\x1b[34;20m'
