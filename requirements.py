@@ -7,6 +7,8 @@ from tensorflow import keras
 from google.colab import drive
 from argparse import ArgumentParser
 
+print(DIR_ROOT, DIR_GIT, URL_GIT)
+
 def Mkdir(path):
   pathlib.Path(path).mkdir(parents=True, exist_ok=True)
 
