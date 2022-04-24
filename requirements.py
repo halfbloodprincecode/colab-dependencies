@@ -7,7 +7,6 @@ from tensorflow import keras
 from google.colab import drive
 from argparse import ArgumentParser
 
-print(index_vars)
 index_vars = None
 print(index_vars)
 
