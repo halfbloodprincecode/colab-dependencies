@@ -24,7 +24,7 @@ def Drive():
     drive.mount('/content/drive')
 
 def System(paths=[]):
-  print(index_vars)
+  print('!!!!!!!!!!!!!!!!!!!',index_vars['DIR_ROOT'])
   root = index_vars['DIR_ROOT']
   paths.extend([
     root,
