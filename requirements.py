@@ -10,8 +10,6 @@ from argparse import ArgumentParser
 
 index_vars = None
 
-print('@@@@@@@@@@@@', sys.argv)
-
 class CustomFormatter(Genie_logging.Formatter):
   grey = '\x1b[38;20m'
   blue = '\x1b[34;20m'
@@ -35,8 +33,7 @@ class CustomFormatter(Genie_logging.Formatter):
     return formatter.format(record)
 
 def Genie():
-  print('!!!!!!!!!!!!!', index_vars)
-  logger = Genie_logging.getLogger('hoooooooooooooo')
+  logger = Genie_logging.getLogger('Genie')
   logger.setLevel(Genie_logging.DEBUG)
 
   # create console handler with a higher log level
