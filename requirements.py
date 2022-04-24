@@ -37,8 +37,8 @@ def Genie():
   logger.setLevel(Genie_logging.DEBUG)
 
   # create console handler with a higher log level
-  ch = logging.StreamHandler()
-  ch.setLevel(logging.DEBUG)
+  ch = Genie_logging.StreamHandler()
+  ch.setLevel(Genie_logging.DEBUG)
 
   ch.setFormatter(CustomFormatter())
 
