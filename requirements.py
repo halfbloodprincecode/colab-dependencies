@@ -12,7 +12,7 @@ index_vars = None
 
 class CustomFormatter(Genie_logging.Formatter):
   grey = '\x1b[38;20m'
-  blue = '\x1b[36;20m'
+  blue = '\x1b[34;20m'
   yellow = '\x1b[33;20m'
   red = '\x1b[31;20m'
   bold_red = '\x1b[31;1m'
