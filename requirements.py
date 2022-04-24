@@ -4,6 +4,7 @@ import shutil
 import tensorflow as tf  
 from tensorflow import keras
 from google.colab import drive
+from argparse import ArgumentParser
 
 def Drive():
   if os.path.isdir('/content/drive'):
@@ -31,3 +32,10 @@ def Kaggle(root='/', datasets={}):
     os.system(f'kaggle datasets download -d {datasets[Dkey]} -p /content/datasets/{Dkey}')
     os.system(f'unzip /content/datasets/{Dkey}/*.zip -d /content/datasets/{Dkey}')
     os.system(f'rm -rf /content/datasets/{Dkey}/*.zip')
+
+def parser(NET, *args):
+  H = ArgumentParser(NET)
+  H.add_argument('-f')
+  for arg in args:
+    H.add_argument(arg[0], **arg[1])
+  return H.parse_args()
