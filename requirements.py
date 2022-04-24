@@ -1,10 +1,17 @@
 import os
 import sys
 import shutil
+import pathlib 
 import tensorflow as tf  
 from tensorflow import keras
 from google.colab import drive
 from argparse import ArgumentParser
+
+def Mkdir(path):
+  pathlib.Path(path).mkdir(parents=True, exist_ok=True)
+
+def Rmdir(path):
+  shutil.rmtree(path)
 
 def Drive():
   if os.path.isdir('/content/drive'):
@@ -21,7 +28,10 @@ def Sys(root='/', paths=[]):
     root + '/model',
     root + '/model/layer'
   ])
-  [sys.path.insert(0, path) for path in paths]
+  
+  for path in paths:
+    sys.path.insert(0, path)
+    Mkdir(path)
 
 def Kaggle(root='/', datasets={}):
   shutil.copy(root + '/kaggle.json', '/content')
