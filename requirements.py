@@ -7,6 +7,40 @@ from tensorflow import keras
 from google.colab import drive
 from argparse import ArgumentParser
 
+import logging as Genie_logging
+
+class CustomFormatter(Genie_logging.Formatter):
+  grey = '\x1b[38;20m'
+  yellow = '\x1b[33;20m'
+  red = '\x1b[31;20m'
+  bold_red = '\x1b[31;1m'
+  reset = '\x1b[0m'
+  format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)'
+
+  FORMATS = {
+    Genie_logging.DEBUG: grey + format + reset,
+    Genie_logging.INFO: grey + format + reset,
+    Genie_logging.WARNING: yellow + format + reset,
+    Genie_logging.ERROR: red + format + reset,
+    Genie_logging.CRITICAL: bold_red + format + reset
+  }
+
+  def format(self, record):
+    log_fmt = self.FORMATS.get(record.levelno)
+    formatter = Genie_logging.Formatter(log_fmt)
+    return formatter.format(record)
+
+logger = Genie_logging.getLogger('Genie')
+logger.setLevel(logging.DEBUG)
+
+# create console handler with a higher log level
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+
+ch.setFormatter(CustomFormatter())
+
+logger.addHandler(ch)
+
 index_vars = None
 
 def Mkdir(path):
