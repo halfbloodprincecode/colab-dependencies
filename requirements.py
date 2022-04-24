@@ -8,7 +8,6 @@ from google.colab import drive
 from argparse import ArgumentParser
 
 index_vars = None
-print(index_vars)
 
 def Mkdir(path):
   pathlib.Path(path).mkdir(parents=True, exist_ok=True)
@@ -39,6 +38,7 @@ def System(paths=[]):
     Mkdir(path)
 
 def Kaggle(datasets={}):
+  print('@@@@@@@@@@@@@@@',index_vars['DIR_ROOT'])
   root = index_vars['DIR_ROOT']
   shutil.copy(root + '/kaggle.json', '/content')
   shutil.copy('/content/kaggle.json', '/root/.kaggle')
