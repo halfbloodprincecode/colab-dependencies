@@ -36,6 +36,7 @@ def Kaggle(root='/', datasets={}):
 def parser(NET, *args):
   H = ArgumentParser(NET)
   H.add_argument('-f')
+  H.add_argument('--NET', type=str, default=NET)
   for arg in args:
     H.add_argument(arg[0], **arg[1])
   return H.parse_args()
