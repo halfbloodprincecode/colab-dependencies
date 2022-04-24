@@ -34,13 +34,12 @@ class CustomFormatter(Genie_logging.Formatter):
 
 def Genie():
   print('!!!!!!!!!!!!!', index_vars['PROJECT_NAME'])
-  logger = Genie_logging.getLogger('Genie')
+  logger = Genie_logging.getLogger(index_vars['PROJECT_NAME'])
   logger.setLevel(Genie_logging.DEBUG)
 
   # create console handler with a higher log level
   ch = Genie_logging.StreamHandler()
   ch.setLevel(Genie_logging.DEBUG)
-
   ch.setFormatter(CustomFormatter())
 
   logger.addHandler(ch)
