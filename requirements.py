@@ -23,7 +23,6 @@ def Drive():
     drive.mount('/content/drive')
 
 def System(paths=[]):
-  print('!!!!!!!!!!!!!!!!!!!',index_vars['DIR_ROOT'])
   root = index_vars['DIR_ROOT']
   paths.extend([
     root,
@@ -38,7 +37,6 @@ def System(paths=[]):
     Mkdir(path)
 
 def Kaggle(datasets={}):
-  print('@@@@@@@@@@@@@@@',index_vars['DIR_ROOT'])
   root = index_vars['DIR_ROOT']
   shutil.copy(root + '/kaggle.json', '/content')
   shutil.copy('/content/kaggle.json', '/root/.kaggle')
