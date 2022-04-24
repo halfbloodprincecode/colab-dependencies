@@ -33,6 +33,7 @@ class CustomFormatter(Genie_logging.Formatter):
     return formatter.format(record)
 
 def Genie():
+  print('!!!!!!!!!!!!!', index_vars['PROJECT_NAME'])
   logger = Genie_logging.getLogger('Genie')
   logger.setLevel(Genie_logging.DEBUG)
 
