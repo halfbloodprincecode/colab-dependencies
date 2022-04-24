@@ -7,7 +7,9 @@ from tensorflow import keras
 from google.colab import drive
 from argparse import ArgumentParser
 
-print(DIR_ROOT, DIR_GIT, URL_GIT)
+print(index_vars)
+index_vars = None
+print(index_vars)
 
 def Mkdir(path):
   pathlib.Path(path).mkdir(parents=True, exist_ok=True)
@@ -22,7 +24,9 @@ def Drive():
   else:
     drive.mount('/content/drive')
 
-def Sys(root='/', paths=[]):
+def System(paths=[]):
+  print(index_vars)
+  root = index_vars['DIR_ROOT']
   paths.extend([
     root,
     root + '/network',
@@ -35,7 +39,8 @@ def Sys(root='/', paths=[]):
     sys.path.insert(0, path)
     Mkdir(path)
 
-def Kaggle(root='/', datasets={}):
+def Kaggle(datasets={}):
+  root = index_vars['DIR_ROOT']
   shutil.copy(root + '/kaggle.json', '/content')
   shutil.copy('/content/kaggle.json', '/root/.kaggle')
   os.chmod('/root/.kaggle/kaggle.json', 600)
