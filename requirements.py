@@ -9,7 +9,6 @@ from google.colab import drive
 from argparse import ArgumentParser
 
 index_vars = None
-logger = None
 
 class CustomFormatter(Genie_logging.Formatter):
   grey = '\x1b[38;20m'
@@ -43,8 +42,9 @@ def Genie():
   ch.setFormatter(CustomFormatter())
 
   logger.addHandler(ch)
+  return logger,
 
-Genie()
+logger, = Genie()
   
 def Mkdir(path):
   pathlib.Path(path).mkdir(parents=True, exist_ok=True)
