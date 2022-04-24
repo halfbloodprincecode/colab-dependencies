@@ -33,10 +33,10 @@ def Kaggle(root='/', datasets={}):
     os.system(f'unzip /content/datasets/{Dkey}/*.zip -d /content/datasets/{Dkey}')
     os.system(f'rm -rf /content/datasets/{Dkey}/*.zip')
 
-def parser(NET, *args):
+def Parser(NET, *args):
   H = ArgumentParser(NET)
   H.add_argument('-f')
   H.add_argument('--NET', type=str, default=NET)
   for arg in args:
-    H.add_argument(arg[0], **arg[1])
+    H.add_argument(arg[0].upper(), **arg[1])
   return H.parse_args()
