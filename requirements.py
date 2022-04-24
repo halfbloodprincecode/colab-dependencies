@@ -35,8 +35,8 @@ class CustomFormatter(Genie_logging.Formatter):
     return formatter.format(record)
 
 def Genie():
-  print('!!!!!!!!!!!!!', index_vars['PROJECT_NAME'])
-  logger = Genie_logging.getLogger(index_vars['PROJECT_NAME'])
+  print('!!!!!!!!!!!!!', index_vars)
+  logger = Genie_logging.getLogger('hoooooooooooooo')
   logger.setLevel(Genie_logging.DEBUG)
 
   # create console handler with a higher log level
