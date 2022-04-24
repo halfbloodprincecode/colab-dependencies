@@ -3,11 +3,13 @@ import sys
 import shutil
 import pathlib 
 import tensorflow as tf  
+import logging as Genie_logging
 from tensorflow import keras
 from google.colab import drive
 from argparse import ArgumentParser
 
-import logging as Genie_logging
+index_vars = None
+logger = None
 
 class CustomFormatter(Genie_logging.Formatter):
   grey = '\x1b[38;20m'
@@ -30,19 +32,20 @@ class CustomFormatter(Genie_logging.Formatter):
     formatter = Genie_logging.Formatter(log_fmt)
     return formatter.format(record)
 
-logger = Genie_logging.getLogger('Genie')
-logger.setLevel(logging.DEBUG)
+def Genie():
+  logger = Genie_logging.getLogger('Genie')
+  logger.setLevel(Genie_logging.DEBUG)
 
-# create console handler with a higher log level
-ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
+  # create console handler with a higher log level
+  ch = logging.StreamHandler()
+  ch.setLevel(logging.DEBUG)
 
-ch.setFormatter(CustomFormatter())
+  ch.setFormatter(CustomFormatter())
 
-logger.addHandler(ch)
+  logger.addHandler(ch)
 
-index_vars = None
-
+Genie()
+  
 def Mkdir(path):
   pathlib.Path(path).mkdir(parents=True, exist_ok=True)
 
