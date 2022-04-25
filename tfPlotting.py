@@ -1,6 +1,8 @@
 import os
 import visualkeras
 import numpy as np
+import pandas as pd
+import seaborn as sns
 from tensorflow import keras
 import matplotlib.pyplot as plt
 from tfNormalization import Normalization
@@ -15,6 +17,22 @@ class Plotting:
     visualkeras.layered_view(model, to_file=f'{dirpath}/{name}_simple3D.png')
     with open(f'{dirpath}/{name}_summary.txt', 'w') as fh:
       model.summary(print_fn=lambda x: fh.write(x + '\n'))
+  
+  @staticmethod
+  def tsne2Dplot(z, y, title='', axis_x='comp-1', axis_y='comp-2'):
+    df = pd.DataFrame()
+    df['y'] = y
+    df['comp-1'] = z[:,0]
+    df['comp-2'] = z[:,1]
+    C = len(np.unique(y_train))
+
+    sns.scatterplot(
+      x=axis_x, 
+      y=axis_y, 
+      hue=df.y.tolist(),
+      palette=sns.color_palette('hls', C),
+      data=df
+    ).set(title=title) 
   
   @staticmethod
   def subplots(zip, row, col, R=[], figsize=(10, 15)):
