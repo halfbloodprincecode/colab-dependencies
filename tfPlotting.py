@@ -24,7 +24,7 @@ class Plotting:
     df['y'] = y
     df['comp-1'] = z[:,0]
     df['comp-2'] = z[:,1]
-    C = len(np.unique(y_train))
+    C = len(np.unique(y))
 
     sns.scatterplot(
       x=axis_x, 
