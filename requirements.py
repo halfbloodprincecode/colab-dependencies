@@ -62,15 +62,25 @@ def Drive():
     drive.mount('/content/drive')
 
 def System(paths=[]):
-  print('~~~~~~~~~~~~~~~~~~', index_vars['FRAMEWORK'])
   root = index_vars['DIR_ROOT']
-  paths.extend([
-    root,
-    root + '/network',
-    root + '/callback',
-    root + '/model',
-    root + '/model/layer'
-  ])
+  
+  if index_vars['FRAMEWORK'] == 'PyTorch':
+    paths.extend([
+      root,
+      root + '/network',
+      root + '/model',
+      root + '/experimental',
+      root + '/experimental/' + index_vars['Net'],
+    ])
+  
+  if index_vars['FRAMEWORK'] == 'tensorflow':
+    paths.extend([
+      root,
+      root + '/network',
+      root + '/callback',
+      root + '/model',
+      root + '/model/layer'
+    ])
   
   for path in paths:
     sys.path.insert(0, path)
