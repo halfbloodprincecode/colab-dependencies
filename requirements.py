@@ -62,6 +62,7 @@ def Drive():
     drive.mount('/content/drive')
 
 def System(paths=[]):
+  print('~~~~~~~~~~~~~~~~~~', index_vars['FRAMEWORK'])
   root = index_vars['DIR_ROOT']
   paths.extend([
     root,
