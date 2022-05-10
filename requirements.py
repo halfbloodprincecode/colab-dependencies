@@ -2,6 +2,7 @@ import os
 import sys
 import shutil
 import pathlib 
+import torch
 import tensorflow as tf  
 import logging as Genie_logging
 from tensorflow import keras
