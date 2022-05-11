@@ -6,3 +6,6 @@ class Tensorboard:
     
   def Img(self, tag, X):
     self.TB.add_image(tag, utils.make_grid(X))
+  
+  def Graph(self, model, X):
+    self.TB.add_graph(model, X)
