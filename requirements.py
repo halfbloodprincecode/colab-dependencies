@@ -62,10 +62,15 @@ def Drive():
     drive.mount('/content/drive')
 
 def System(paths=[]):
-  root = index_vars['DIR_ROOT']
+  root = index_vars['DIR_ROOT'] + '/ML/'
   
   if index_vars['FRAMEWORK'] == 'PyTorch':
     paths.extend([
+      index_vars['DIR_ROOT'] + '/HTTP/',
+      index_vars['DIR_ROOT'] + '/Socket/',
+      index_vars['DIR_ROOT'] + '/Messaging/',
+      index_vars['DIR_ROOT'] + '/Telegram/',
+      index_vars['DIR_ROOT'] + '/Instagram/',
       root,
       root + '/network',
       root + '/model',
