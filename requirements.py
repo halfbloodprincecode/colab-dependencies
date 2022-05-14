@@ -63,6 +63,8 @@ def Drive():
 
 def System(paths=[]):
   paths.extend([
+    index_vars['Environment'],
+    index_vars['DIR_ROOT'],
     index_vars['DIR_ROOT'] + '/HTTP',
     index_vars['DIR_ROOT'] + '/Socket',
     index_vars['DIR_ROOT'] + '/Messaging',
