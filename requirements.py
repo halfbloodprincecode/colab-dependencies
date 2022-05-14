@@ -12,7 +12,7 @@ from argparse import ArgumentParser
 index_vars = None
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-class CustomFormatter(Genie_logging.Formatter):
+class CustomFormatter(tools_logging.Formatter):
   grey = '\x1b[38;20m'
   blue = '\x1b[34;20m'
   yellow = '\x1b[33;20m'
@@ -22,31 +22,31 @@ class CustomFormatter(Genie_logging.Formatter):
   format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)'
 
   FORMATS = {
-    Genie_logging.DEBUG: grey + format + reset,
-    Genie_logging.INFO: blue + format + reset,
-    Genie_logging.WARNING: yellow + format + reset,
-    Genie_logging.ERROR: red + format + reset,
-    Genie_logging.CRITICAL: bold_red + format + reset
+    tools_logging.DEBUG: grey + format + reset,
+    tools_logging.INFO: blue + format + reset,
+    tools_logging.WARNING: yellow + format + reset,
+    tools_logging.ERROR: red + format + reset,
+    tools_logging.CRITICAL: bold_red + format + reset
   }
 
   def format(self, record):
     log_fmt = self.FORMATS.get(record.levelno)
-    formatter = Genie_logging.Formatter(log_fmt)
+    formatter = tools_logging.Formatter(log_fmt)
     return formatter.format(record)
 
-def Genie():
-  logger = Genie_logging.getLogger('logger')
-  logger.setLevel(Genie_logging.DEBUG)
+def tools():
+  logger = tools_logging.getLogger('logger')
+  logger.setLevel(tools_logging.DEBUG)
 
   # create console handler with a higher log level
-  ch = Genie_logging.StreamHandler()
-  ch.setLevel(Genie_logging.DEBUG)
+  ch = tools_logging.StreamHandler()
+  ch.setLevel(tools_logging.DEBUG)
   ch.setFormatter(CustomFormatter())
 
   logger.addHandler(ch)
   return logger,
 
-logger, = Genie()
+logger, = tools()
   
 def Mkdir(path):
   pathlib.Path(path).mkdir(parents=True, exist_ok=True)
