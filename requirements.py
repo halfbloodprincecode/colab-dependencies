@@ -62,31 +62,18 @@ def Drive():
     drive.mount('/content/drive')
 
 def System(paths=[]):
-  root = index_vars['DIR_ROOT'] + '/ML/'
-  
-  if index_vars['FRAMEWORK'] == 'PyTorch':
-    paths.extend([
-      index_vars['DIR_ROOT'] + '/HTTP/',
-      index_vars['DIR_ROOT'] + '/Socket/',
-      index_vars['DIR_ROOT'] + '/Messaging/',
-      index_vars['DIR_ROOT'] + '/Telegram/',
-      index_vars['DIR_ROOT'] + '/Instagram/',
-      root,
-      root + '/network',
-      root + '/model',
-      root + '/experimental',
-      root + '/experimental/' + index_vars['Net'],
-    ])
-  
-  if index_vars['FRAMEWORK'] == 'tensorflow':
-    paths.extend([
-      root,
-      root + '/network',
-      root + '/callback',
-      root + '/model',
-      root + '/model/layer'
-    ])
-  
+  paths.extend([
+    index_vars['DIR_ROOT'] + '/HTTP',
+    index_vars['DIR_ROOT'] + '/Socket',
+    index_vars['DIR_ROOT'] + '/Messaging',
+    index_vars['DIR_ROOT'] + '/Telegram',
+    index_vars['DIR_ROOT'] + '/Instagram',
+    index_vars['DIR_ROOT'] + '/ML',
+    index_vars['DIR_ROOT'] + '/ML' + '/network',
+    index_vars['DIR_ROOT'] + '/ML' + '/model',
+    index_vars['DIR_ROOT'] + '/ML' + '/experimental',
+    index_vars['DIR_ROOT'] + '/ML' + '/experimental' + '/' + index_vars['Net'],
+  ])
   for path in paths:
     sys.path.insert(0, path)
     Mkdir(path)
