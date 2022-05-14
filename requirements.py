@@ -73,6 +73,7 @@ def System(paths=[]):
     index_vars['DIR_ROOT'] + '/ML' + '/model',
     index_vars['DIR_ROOT'] + '/ML' + '/experimental',
     index_vars['DIR_ROOT'] + '/ML' + '/experimental' + '/' + index_vars['Net'],
+    index_vars['DIR_ROOT'] + '/ML' + '/experimental' + '/' + index_vars['Net'] + '/tensorboard',
   ])
   for path in paths:
     sys.path.insert(0, path)
