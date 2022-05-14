@@ -4,7 +4,7 @@ import shutil
 import pathlib 
 import torch
 import tensorflow as tf  
-import logging as Genie_logging
+import logging as tools_logging
 from tensorflow import keras
 from google.colab import drive
 from argparse import ArgumentParser
