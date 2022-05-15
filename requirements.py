@@ -68,6 +68,7 @@ def System(paths=[]):
     index_vars['DIR_ROOT'] + '/HTTP',
     index_vars['DIR_ROOT'] + '/Socket',
     index_vars['DIR_ROOT'] + '/FCM',
+    index_vars['DIR_ROOT'] + '/FCM/Microservices',
     index_vars['DIR_ROOT'] + '/Telegram',
     index_vars['DIR_ROOT'] + '/Twitter',
     index_vars['DIR_ROOT'] + '/Instagram',
