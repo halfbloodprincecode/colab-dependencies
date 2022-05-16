@@ -10,7 +10,7 @@ from google.colab import drive
 from argparse import ArgumentParser
 
 index_vars = None
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class CustomFormatter(tools_logging.Formatter):
   grey = '\x1b[38;20m'
