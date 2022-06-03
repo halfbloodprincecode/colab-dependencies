@@ -76,6 +76,7 @@ def System(paths=[]):
     index_vars['DIR_ROOT'] + '/ML',
     index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'],
     index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks',
+    index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks' + '/' + index_vars['Net'],
     index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental',
     index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'],
     index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'] + '/tensorboard',
