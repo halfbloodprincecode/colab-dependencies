@@ -83,7 +83,7 @@ def System(paths=[]):
     index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'] + '/checkpoint',
   ])
   pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/_' + index_vars['Net'] + '_.py').touch(exist_ok=True)
-  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '__init__.py').touch(exist_ok=True)
+  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/__init__.py').touch(exist_ok=True)
   for path in paths:
     sys.path.insert(0, path)
     Mkdir(path)
