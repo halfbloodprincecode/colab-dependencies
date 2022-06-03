@@ -87,6 +87,10 @@ def System(paths=[]):
     Mkdir(path)
   pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/_' + index_vars['Net'] + '_.py').touch(exist_ok=True)
   pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/__init__.py').touch(exist_ok=True)
+  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/config.py').touch(exist_ok=True)
+  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/dataset.py').touch(exist_ok=True)
+  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/model.py').touch(exist_ok=True)
+  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/utils.py').touch(exist_ok=True)
   
 
 def Kaggle(datasets={}):
