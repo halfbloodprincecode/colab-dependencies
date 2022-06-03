@@ -74,11 +74,12 @@ def System(paths=[]):
     index_vars['DIR_ROOT'] + '/Twitter',
     index_vars['DIR_ROOT'] + '/Instagram',
     index_vars['DIR_ROOT'] + '/ML',
-    index_vars['DIR_ROOT'] + '/ML' + '/networks',
-    index_vars['DIR_ROOT'] + '/ML' + '/experimental',
-    index_vars['DIR_ROOT'] + '/ML' + '/experimental' + '/' + index_vars['Net'],
-    index_vars['DIR_ROOT'] + '/ML' + '/experimental' + '/' + index_vars['Net'] + '/tensorboard',
-    index_vars['DIR_ROOT'] + '/ML' + '/experimental' + '/' + index_vars['Net'] + '/checkpoint',
+    index_vars['DIR_ROOT'] + '/ML' + index_vars['PRs'],
+    index_vars['DIR_ROOT'] + '/ML' + index_vars['PRs'] + '/networks',
+    index_vars['DIR_ROOT'] + '/ML' + index_vars['PRs'] + '/experimental',
+    index_vars['DIR_ROOT'] + '/ML' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'],
+    index_vars['DIR_ROOT'] + '/ML' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'] + '/tensorboard',
+    index_vars['DIR_ROOT'] + '/ML' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'] + '/checkpoint',
   ])
   for path in paths:
     sys.path.insert(0, path)
