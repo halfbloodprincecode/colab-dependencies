@@ -75,7 +75,7 @@ def System(paths=[]):
     (index_vars['DIR_ROOT'] + '/Instagram', True),
     (index_vars['DIR_ROOT'] + '/ML', True),
     (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'], False),
-    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks', False),
+    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks', True),
     (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks' + '/' + index_vars['Net'], False),
     (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental', False),
     (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'], False),
