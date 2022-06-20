@@ -10,7 +10,6 @@ from google.colab import drive
 from argparse import ArgumentParser
 
 index_vars = None
-# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class CustomFormatter(tools_logging.Formatter):
   grey = '\x1b[38;20m'
@@ -75,7 +74,7 @@ def System(paths=[]):
     (index_vars['DIR_ROOT'] + '/Instagram', True),
     (index_vars['DIR_ROOT'] + '/ML', True),
     (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'], False),
-    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks', True),
+    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks', False),
     (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks' + '/' + index_vars['Net'], False),
     (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental', False),
     (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'], False),
@@ -86,13 +85,19 @@ def System(paths=[]):
     if flag:
       sys.path.insert(0, path)
     Mkdir(path)
-  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/_' + index_vars['Net'] + '_.py').touch(exist_ok=True)
-  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/__init__.py').touch(exist_ok=True)
-  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/config.py').touch(exist_ok=True)
-  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/dataset.py').touch(exist_ok=True)
-  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/model.py').touch(exist_ok=True)
-  pathlib.Path(index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks/'  + index_vars['Net'] + '/utils.py').touch(exist_ok=True)
   
+  cp_files(os.path.join(index_vars['DIR_ROOT'], 'codesamples', 'ml'), os.path.join(os.path.join(index_vars['DIR_ROOT'], 'ML', index_vars['PRs'], 'networks', index_vars['Net']), {
+    'config.py': 'config.py',
+    'loader.py': 'loader.py',
+    'loss_fn.py': 'loss_fn.py',
+    'model.py': 'model.py',
+    'optim.py': 'optim.py',
+    'test.py': 'test.py',
+    'train.py': 'train.py'
+  })
+  cp_files(os.path.join(index_vars['DIR_ROOT'], 'codesamples', 'ml'), os.path.join(os.path.join(index_vars['DIR_ROOT'], 'ML', index_vars['PRs'], 'networks'), {
+    '_model_.py': f'_{index_vars["Net"]}_.py'
+  })
 
 def Kaggle(datasets={}):
   root = index_vars['DIR_ROOT']
