@@ -53,6 +53,11 @@ def Mkdir(path):
 def Rmdir(path):
   shutil.rmtree(path)
 
+def cp_files(path_from, path_to, fnames_dict):
+  for key in fnames_dict:
+    if os.path.exists(os.path.join(path_to, fnames_dict[key])) == False:
+      shutil.copyfile(os.path.join(path_from, key), os.path.join(path_from, fnames_dict[key]))
+  
 def Drive():
   if os.path.isdir('/content/drive'):
     drive.flush_and_unmount()
