@@ -102,7 +102,7 @@ def System(paths=[]):
   })
   cp_files(os.path.join(index_vars['DIR_ROOT'], 'codesamples', 'ml'), os.path.join(os.path.join(index_vars['DIR_ROOT'], 'ML', index_vars['PRs'], 'networks'), {
     '_model_.py': f'_{index_vars["Net"]}_.py'
-  })
+  })a
 
 def Kaggle(datasets={}):
   root = index_vars['DIR_ROOT']
