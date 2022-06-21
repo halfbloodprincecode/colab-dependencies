@@ -91,7 +91,7 @@ def System(paths=[]):
       sys.path.insert(0, path)
     Mkdir(path)
   
-  cp_files(os.path.join(index_vars['DIR_ROOT'], 'codesamples', 'ml'), os.path.join(os.path.join(index_vars['DIR_ROOT'], 'ML', index_vars['PRs'], 'networks', index_vars['Net']), {
+  cp_files(os.path.join(index_vars['DIR_ROOT'], 'codesamples', 'ml'), os.path.join(index_vars['DIR_ROOT'], 'ML', index_vars['PRs'], 'networks', index_vars['Net']), {
     'config.py': 'config.py',
     'loader.py': 'loader.py',
     'loss_fn.py': 'loss_fn.py',
@@ -100,7 +100,7 @@ def System(paths=[]):
     'test.py': 'test.py',
     'train.py': 'train.py'
   })
-  cp_files(os.path.join(index_vars['DIR_ROOT'], 'codesamples', 'ml'), os.path.join(os.path.join(index_vars['DIR_ROOT'], 'ML', index_vars['PRs'], 'networks'), {
+  cp_files(os.path.join(index_vars['DIR_ROOT'], 'codesamples', 'ml'), os.path.join(index_vars['DIR_ROOT'], 'ML', index_vars['PRs'], 'networks'), {
     '_model_.py': f'_{index_vars["Net"]}_.py'
   })
 
