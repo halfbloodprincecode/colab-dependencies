@@ -67,29 +67,31 @@ def Drive():
 
 def System(paths=[]):
   paths.extend([
-    (index_vars['Environment'], True),
-    (index_vars['DIR_ROOT'], True),
-    (index_vars['DIR_ROOT'] + '/lib', True),
-    (index_vars['DIR_ROOT'] + '/HTTP', True),
-    (index_vars['DIR_ROOT'] + '/Socket', True),
-    (index_vars['DIR_ROOT'] + '/FCM', True),
-    (index_vars['DIR_ROOT'] + '/FCM/Microservices', False),
-    (index_vars['DIR_ROOT'] + '/Telegram', True),
-    (index_vars['DIR_ROOT'] + '/Twitter', True),
-    (index_vars['DIR_ROOT'] + '/Instagram', True),
-    (index_vars['DIR_ROOT'] + '/ML', True),
-    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'], False),
-    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks', False),
-    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks' + '/' + index_vars['Net'], False),
-    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental', False),
-    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'], False),
-    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'] + '/tensorboard', False),
-    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'] + '/checkpoint', False),
+    (index_vars['Environment'], True, False),
+    (index_vars['DIR_ROOT'], True, False),
+    (index_vars['DIR_ROOT'] + '/lib', True, False),
+    (index_vars['DIR_ROOT'] + '/HTTP', True, True),
+    (index_vars['DIR_ROOT'] + '/Socket', True, True),
+    (index_vars['DIR_ROOT'] + '/FCM', True, True),
+    (index_vars['DIR_ROOT'] + '/FCM/Microservices', False, True),
+    (index_vars['DIR_ROOT'] + '/Telegram', True, True),
+    (index_vars['DIR_ROOT'] + '/Twitter', True, True),
+    (index_vars['DIR_ROOT'] + '/Instagram', True, True),
+    (index_vars['DIR_ROOT'] + '/ML', True, True),
+    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'], False, True),
+    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks', False, True),
+    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/networks' + '/' + index_vars['Net'], False, True),
+    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental', False, False),
+    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'], False, False),
+    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'] + '/tensorboard', False, False),
+    (index_vars['DIR_ROOT'] + '/ML' + '/' + index_vars['PRs'] + '/experimental' + '/' + index_vars['Net'] + '/checkpoint', False, False),
   ])
-  for path, flag in paths:
+  for path, flag, pkg_flag in paths:
     if flag:
       sys.path.insert(0, path)
     Mkdir(path)
+    if pkg_flag:
+      pathlib.Path(os.path.join(path, '__init__.py')).touch(exist_ok=True)
   
   cp_files(os.path.join(index_vars['DIR_ROOT'], 'codesamples', 'ml'), os.path.join(index_vars['DIR_ROOT'], 'ML', index_vars['PRs'], 'networks', index_vars['Net']), {
     'config.py': 'config.py',
